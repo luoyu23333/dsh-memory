@@ -16,17 +16,14 @@ from __future__ import annotations
 
 import asyncio
 import json
-import logging
 import os
 from datetime import datetime
 from typing import Any, List, Optional
 
-from astrbot.api import AstrBotConfig
+from astrbot.api import AstrBotConfig, logger
 from astrbot.api.event import filter, AstrMessageEvent
 from astrbot.api.provider import ProviderRequest, LLMResponse
 from astrbot.api.star import Context, Star
-
-logger = logging.getLogger("astrbot_plugin_mementy")
 
 PLUGIN_NAME = "astrbot_plugin_mementy"
 
@@ -40,9 +37,9 @@ class MementyPlugin(Star):
         # AstrBot 原生配置注入（AstrBotConfig 继承自 dict）
         self.config = config
 
-        # 存储层
+        # 存储层（必须放在 data/plugin_data/<name>/ 下，便于用户迁移与审计）
         data_dir = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)), "..", "..", PLUGIN_NAME
+            os.path.dirname(os.path.abspath(__file__)), "..", "..", "plugin_data", PLUGIN_NAME
         )
         os.makedirs(data_dir, exist_ok=True)
         db_path = os.path.join(data_dir, "memories.db")

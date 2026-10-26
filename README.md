@@ -166,7 +166,7 @@ idx_memories_next_rev  ON (status, created_time)
 
 1. 把 `astrbot_plugin_mementy/` 整个目录放到 AstrBot 的插件目录下（通常是 `data/plugins/`）
 2. 重启 AstrBot
-3. 在 WebUI → 扩展 → Mementy 里配置参数（首次加载自动创建数据库 `data/astrbot_plugin_mementy/memories.db`）
+3. 在 WebUI → 扩展 → Mementy 里配置参数（首次加载自动创建数据库 `data/plugin_data/astrbot_plugin_mementy/memories.db`）
 
 ### 前置条件
 
@@ -286,7 +286,7 @@ Mementy 用**时间调度信号优先**（到期才召回到上下文），相�
 
 ### Q: 数据库在哪里？
 
-`data/astrbot_plugin_mementy/memories.db`，SQLite WAL 模式，可直接复制备份。
+`data/plugin_data/astrbot_plugin_mementy/memories.db`，SQLite WAL 模式，可直接复制备份。
 
 ---
 
@@ -294,6 +294,7 @@ Mementy 用**时间调度信号优先**（到期才召回到上下文），相�
 
 | 版本 | 日期 | 变更 |
 |------|------|------|
+| 0.1.1 | 2026-10-26 | 合规化：数据目录改为 `data/plugin_data/astrbot_plugin_mementy`，统一使用 AstrBot logger，更新 README |
 | 0.1.0 | 2026-10-26 | 初版：SM-2 调度 + SQLite + LLM 异步提取 + on_llm_request/response 钩子 |
 
 ---

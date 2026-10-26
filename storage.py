@@ -23,7 +23,6 @@ SQLite 存储层：记忆数据的持久化和检索。
 from __future__ import annotations
 
 import json
-import logging
 import os
 import sqlite3
 import threading
@@ -31,9 +30,9 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
 
-from .ebbinghaus import ScheduleState, initial_schedule
+from astrbot.api import logger
 
-logger = logging.getLogger("astrbot_plugin_mementy")
+from .ebbinghaus import ScheduleState, initial_schedule
 
 
 @dataclass
