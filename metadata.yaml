@@ -1,0 +1,5 @@
+name: astrbot_plugin_mementy
+display_name: Mementy - 智能体长期记忆
+version: 0.1.0
+author: mementy
+desc: 基于艾宾浩斯遗忘曲线（SM-2 间隔重复算法）的 Agent 长期记忆插件。记忆会在到期时自动注入到 LLM 上下文，重要信息按科学节奏被反复强化，避免遗忘。
