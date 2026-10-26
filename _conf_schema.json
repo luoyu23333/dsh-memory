@@ -1,0 +1,37 @@
+{
+  "extraction_enabled": {
+    "description": "是否在每次 LLM 回复后自动提取值得长期记住的内容",
+    "type": "bool",
+    "default": true
+  },
+  "extraction_provider_id": {
+    "description": "用于记忆提取的 LLM Provider ID，留空则使用当前会话默认",
+    "type": "string",
+    "default": "",
+    "hint": "如果需要使用特定模型做提取，填 Provider ID；否则留空"
+  },
+  "max_items_per_extract": {
+    "description": "单次提取最多存储几条记忆",
+    "type": "int",
+    "default": 5,
+    "slider": {"min": 1, "max": 20, "step": 1}
+  },
+  "max_conversation_turns": {
+    "description": "喂给 LLM 的对话历史轮数",
+    "type": "int",
+    "default": 10,
+    "slider": {"min": 2, "max": 30, "step": 1}
+  },
+  "max_memories_injected": {
+    "description": "每轮 LLM 请求最多注入几条记忆",
+    "type": "int",
+    "default": 8,
+    "slider": {"min": 1, "max": 20, "step": 1}
+  },
+  "min_importance_threshold": {
+    "description": "注入记忆时的最低重要性阈值（低于此值的记忆不会被注入）",
+    "type": "float",
+    "default": 0.3,
+    "slider": {"min": 0.0, "max": 1.0, "step": 0.1}
+  }
+}
